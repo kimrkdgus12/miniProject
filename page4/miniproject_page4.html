@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아트클라우드 / 취향선택</title>
+
+    <link rel="stylesheet" href="./miniproject_page4.css">
+
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="../index.html">
+            <h1>아트클라우드</h1>
+        </a>
+    </header>
+
+    <hr>
+
+    <div>
+        <div class="welcome">
+            <div class="welcome_content">
+                <h1 id="welcome_nick">Welcome! You Are Curator</h1>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="favorite">
+            <h1>무엇을 큐레이팅 하시겠습니까?</h1>
+        </div>
+    </div>
+
+    <div id="icons">
+        <button id="icon1" class="divIcon icon"><img
+                src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDAzMTVfMTIy%2FMDAxNzEwNTEwODM0ODAz.5JlWcnDmXMeq4jn0_qf11fsJwsiSLFcCXdEcoCIfXHIg.7C6-OvqX05kC0Ub5VrMY8e_TKE9GunudpzMtEJxa5Hcg.JPEG%2FIMG_6638.jpg&type=a340"
+                alt="음악 아이콘"> <br> 음악 </button>
+        <button id="icon2" class="divIcon icon"><img
+                src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzEwMDRfMTE1%2FMDAxNjk2NDE5NDc4OTQ5.s_0WzYLQMTzRd9Cjh4hABUsGT5qR6h-G3WLoPYALykMg.f-jxRWZUf3nGi1Jk-9XE4GrPaJuaR5Gb7M2fffawtWQg.PNG.arangharang%2Fhgjgjh.PNG&type=a340"
+                alt="영화 아이콘"> <br> 영화 </button>
+        <button id="icon3" class="divIcon icon"><img
+                src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDAzMzFfMTEx%2FMDAxNzExODQ0MDUxMjY3.qklpyRt5JLZNLv-bU5-7tM2amr-wxu6C9sdHpuJbRC4g.xOJO1-MXqadVRKI6sw9SqQKHYT-WX0WHXZZjTt2JvIIg.PNG%2F240331_%253F%258F%2584%253F%2584%259C%25EA%25B4%253F%253F%259D%2598%25EC%25B1%2585%25EB%2593%25A4%253F%25A0%2595%25EB%25A6%253F_3.png&type=a340"
+                alt="도서 아이콘"> <br> 도서 </button>
+        <button id="icon4" class="divIcon icon"><img
+                src="https://search.pstatic.net/common/?src=http%3A%2F%2Fcafefiles.naver.net%2F20111107_294%2F89guswjd_1320657077162hJvlh_jpg%2Flifestye_89guswjd.jpg&type=a340"
+                alt="라이프스타일 아이콘"> <br> 라이프스타일 </button>
+        <button id="icon5" class="divIcon icon"><img
+                src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDA1MTRfMjMy%2FMDAxNzE1NjU1MzEwMzQ5.1eau4fp6pS2Btk9TavrBm6Yaqlu4LsCaMbFYI3nhd9gg.g2Zsz_DgekA0oB1yupPSV1zBH8mHxxAzx5A0_JUzqSgg.JPEG%2FIMG_0858.jpg&type=a340"
+                alt="라이프스타일 아이콘"> <br> 전시회 </button>
+    </div>
+
+    <div align="center">
+        <!-- <a href="../실험/a.html" id="signUpEnd"><button class="signUpEnd" type="submit">가입 완료</button></a> -->
+        <button id="EndBtn" type="submit">완료</button>
+    </div>
+
+    <script src="./miniproject_page4.js"></script>
+</body>
+
+</html>

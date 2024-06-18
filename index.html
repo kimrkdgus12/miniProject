@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아트클라우드</title>
+    <style>
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            font-family: 'GmarketSansMedium';
+        }
+
+        body {
+            margin: 0;
+            background-color: white;
+            color: black;
+            font-family: 'Pretendard-Regular', sans-serif;
+        }
+
+        .allContainer {
+            display: flex;
+            height: 100vh;
+            /* 전체 화면 높이 */
+        }
+
+        /* 사이드바 작업 */
+        .sidebar {
+            width: 10%;
+            background-color: gray;
+            /* 사이드바 배경색 변경 */
+        }
+
+        .sidebar p {
+            box-sizing: border-box;
+            border: 1px solid white;
+            border-radius: 10px;
+            /* border-box 라인 색상 변경 */
+
+            font-size: 1.3rem;
+            font-weight: bold;
+
+            height: 5rem;
+            margin: 1rem 1rem 2rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .sidebar ul {
+            text-align: center;
+            padding: 0;
+
+        }
+
+        .sidebar li {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        .sidebar ul li:hover {
+            color: #A4A79A;
+            transition: 0.6s ease;
+            background-color: #336699;
+            /* 포인트 색 적용 */
+        }
+
+        /* 사이드바 작업 끝 */
+
+        .mainContent {
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            height: 10%;
+            background-color: white;
+            text-align: center;
+        }
+
+        .header>p {
+            align-content: center;
+            font-size: 34px;
+            /* 글씨 크기 36px로 변경 */
+            font-weight: bold;
+            /* 글씨 두께를 bold로 변경 */
+            color: black;
+            /* 포인트 색 적용 */
+        }
+
+        .main {
+            height: 80%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('./image1.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            /* 전체 화면 높이 */
+        }
+
+        .main .mainText {
+            color: gold;
+            font-size: 20px;
+            font-weight: 500;
+            text-align: center;
+            line-height: 180%;
+        }
+
+        /* 텍스트가 너무 밑에 있어서 */
+
+        .footer {
+            height: 10%;
+            background-color: white;
+        }
+
+        .login-btn {
+            position: absolute;
+            top: 1rem;
+            right: 0.5rem;
+
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            background-color: gray;
+            /* 포인트 색 적용 */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        /* 로그아웃 버튼 호버 */
+        .login-btn:hover {
+            background-color: #336699;
+            /* 호버 시 포인트 색 적용 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="allContainer">
+        <div class="sidebar">
+            <p><a href="./index.html">Art Cloud</a></p>
+            <ul style="list-style:none;">
+                <a href="#">
+                    <li>BOOK</li>
+                </a>
+                <a href="#">
+                    <li>PICTURE</li>
+                </a>
+                <a href="#">
+                    <li>MOVIE</li>
+                </a>
+                <a href="#">
+                    <li>MUSIC</li>
+                </a>
+                <a href="./page5/miniproject_Page5.html">
+                    <li>EXHIBITION</li>
+                </a>
+            </ul>
+        </div>
+        <div class="mainContent">
+            <div class="header">
+                <p>아트클라우드</p>
+                <a href="./page2/miniproject_page2.html" class="login-btn">Login</a>
+            </div>
+            <div class="main">
+                <p class="mainText"> Save the curated content according to your preferences and interests
+                    <br>
+                    Share your experiences with others.
+            </div>
+
+            <div class="footer"></div>
+        </div>
+    </div>
+</body>
+
+</html>

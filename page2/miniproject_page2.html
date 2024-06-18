@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아트클라우드 / 로그인</title>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        Kakao.init('6fd43d72297abe13d4858bc6f861eda4');
+        function loginWithKakao() {
+            Kakao.Auth.authorize({
+                redirectUri: 'http://127.0.0.1:5500/'
+            });
+        }
+    </script>
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+        }
+
+        function startGoogleSignIn() {
+            gapi.auth2.init({
+                client_id: 'AIzaSyCL2cGhIYmrVGVVl1QtnQMznQaAtW72vgY.apps.googleusercontent.com'
+            }).then(function () {
+                var GoogleAuth = gapi.auth2.getAuthInstance();
+                GoogleAuth.signIn().then(function (googleUser) {
+                    onSignIn(googleUser);
+                });
+            });
+        }
+    </script>
+
+    <!-- 파이어 베이스 관련 서비스 추가 -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+
+
+    <style>
+        body {
+            margin: auto;
+            width: 960px;
+        }
+
+        #logInBtn {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        table {
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 500px;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+        .loss {
+            display: flex;
+            margin-top: 10px;
+            font-size: 15px;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px 0 20px;
+        }
+
+        .loss a {
+            color: inherit;
+            text-decoration: none;
+            margin: 10px;
+            margin-top: 5px;
+        }
+
+        .homeLogo {
+            /* text-align: center; */
+            margin-top: 20px;
+        }
+
+        .homeLogo a {
+            text-decoration: none;
+            color: inherit;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logInBox {
+            text-align: center;
+            margin-top: 100px;
+
+        }
+
+        /* loginIcon 시작*/
+        ul {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-top: 30px;
+            padding: 0;
+            display: flex;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        ul li a {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            display: block;
+            text-align: center;
+            margin: 0 10px;
+            border-radius: 50%;
+            padding: 6px;
+            box-sizing: border-box;
+            text-decoration: none;
+            /* box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); */
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0);
+            /* background: linear-gradient(0deg, #ddd, #fff); */
+            background: linear-gradient(0deg, #ddd, #fff, 0);
+            transition: .5s;
+        }
+
+        ul li a:hover {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+        }
+
+        ul li a .loginIcon {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border-radius: 50%;
+            line-height: calc(60px - 12px);
+            font-size: 24px;
+            color: #262626;
+            transition: .5s;
+        }
+        /* loginIcon 끝 */
+    </style>
+</head>
+
+<body>
+    <!-- 홈로고  -->
+    <div class="homeLogo">
+        <a href='../index.html'>아트클라우드</a>
+    </div>
+    <hr>
+
+    <!-- 로그인 폼 -->
+    <div class="logInBox">
+        <table>
+            <div id="loginForm">
+                <tr>
+                    <td colspan="3">
+                        <input type="text" id="username" name="id" placeholder="아이디">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <input type="password" id="passWord" name="password" placeholder="비밀번호">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <button type="submit" id="logInBtn">로그인</button>
+                    </td>
+                </tr>
+                <tr class='loss'>
+                    <td colspan="3" align="center">
+                        <a href="#">아이디 찾기</a>
+                        <span>|</span>
+                        <a href="#">비밀번호 찾기</a>
+                        <span>|</span>
+                        <a href="../page3/miniproject_page3.html">회원가입</a>
+                    </td>
+                </tr>
+            </div>
+        </table>
+
+
+        <!-- 로그인 아이콘 -->
+        <ul>
+            <li> <!-- 카카오 -->
+                <a href="javascript:void(0);" onclick="loginWithKakao()">
+                    <img src="https://cdn.icon-icons.com/icons2/2429/PNG/512/kakaotalk_logo_icon_147272.png"
+                        class="loginIcon" aria-hidden="true" alt="카카오">
+                </a>
+            </li>
+
+            <li> <!-- 구글 -->
+                <a href="javascript:void(0);" onclick="startGoogleSignIn()">
+                    <img src="https://cdn-icons-png.flaticon.com/256/2991/2991148.png" class="loginIcon"
+                        aria-hidden="true" alt="구글">
+                </a>
+            </li>
+
+            <li> <!-- 네이버 -->
+                <a href="javascript:void(0);" onclick="startGoogleSignIn()">
+                    <img
+                        src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.namu.wiki%2Fi%2Fp_1IEyQ8rYenO9YgAFp_LHIAW46kn6DXT0VKmZ_jKNijvYth9DieYZuJX_E_H_4GkCER_sVKhMqSyQYoW94JKA.svg&type=sc960_832"
+                        class="loginIcon" aria-hidden="true" alt="네이버">
+                </a>
+            </li>
+
+            <li> <!-- 애플 -->
+                <a href="javascript:void(0);" onclick="loginWithApple()">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                        class="loginIcon" aria-hidden="true" alt="애플">
+                </a>
+            </li>
+        </ul>
+
+
+    </div>
+
+    <script src="./miniproject_page2.js"></script>
+
+</body>
+
+</html>

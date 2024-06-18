@@ -1,0 +1,258 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'GmarketSansMedium';
+}
+
+body {
+    margin: 0;
+    background-color: white;
+    color: black;
+    font-family: 'Pretendard-Regular', sans-serif;
+}
+
+.allContainer {
+    display: flex;
+    height: 100vh;
+    /* 전체 화면 높이 */
+}
+
+/* 사이드 바  */
+.sidebar {
+    width: 10%;
+    background-color: gray;
+    /* 사이드바 배경색 변경 */
+}
+
+.sidebar p {
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 10px;
+    /* border-box 라인 색상 변경 */
+
+    font-size: 1.3rem;
+    font-weight: bold;
+
+    height: 5rem;
+    margin: 1rem 1rem 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar ul {
+    text-align: center;
+    padding: 0;
+
+}
+
+.sidebar li {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.sidebar ul li:hover {
+    color: #A4A79A;
+    transition: 0.6s ease;
+    background-color: whitesmoke;
+    /* 포인트 색 적용 */
+}
+
+/* 사이드바 작업 끝 */
+
+.mainContent {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    height: 10%;
+    background-color: white;
+    text-align: center;
+}
+
+.main {
+    height: 80%;
+    background-color: white;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRXAPwpmlCbxEmAZJuAsaxAhh8_A5xnjdCz3sXPcOiFpBXp4xLV');
+    background-color: gainsboro;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    /* 내용이 넘칠 때 스크롤 추가 */
+}
+
+.footer {
+    height: 10%;
+    background-color: white;
+}
+
+/* 상단바  */
+.search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* 검색창 스타일 */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* 검색창 위치 */
+    margin: 30px;
+}
+
+/* 상단 select 창 */
+.search-input-wrapper select {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    padding-left: 5px;
+    border-right: 2px solid #A4A79A;
+    /* *******************************************************header select css, font 추가(예정) */
+}
+
+/* 상단 input 창 */
+.search-input-wrapper input {
+    padding-left: 75px;
+    height: 30px;
+    width: 400px;
+    box-sizing: border-box;
+    /* *******************************************************header input css, font 추가(예정) */
+}
+
+/* 상단 검색하기 button */
+.search-container button {
+    height: 30px;
+    margin-left: 10px;
+    /* *******************************************************header 검색하기 버튼 css,font 추가(예정) */
+}
+
+/* 로그아웃 버튼 */
+#login-btn {
+    position: absolute;
+    top: 1rem;
+    right: 0.5rem;
+
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: gray;
+    /* 포인트 색 적용 */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+/* 로그아웃 버튼 호버 */
+#login-btn:hover {
+    background-color: #A4A79A;
+}
+
+/* 테이블 style 값 */
+table {
+    width: 100%;
+    margin: auto;
+    table-layout: fixed;
+}
+
+/* 테이블 내부 td 값 */
+td {
+    /* 전시회 그림 이미지가 들어갈 cell 크기 */
+    height: 210px;
+}
+
+/* 상단에 div 버튼들 가운데 정렬 */
+.search {
+    text-align: center;
+}
+
+/* 테이블 중간에 띄우기 용도 셀 값 */
+.space {
+    height: 15px;
+}
+
+/* 전시회 제목 */
+#titleID {
+    font-weight: bold;
+    font-size: 20px;
+    /* *******************************************************전시회 제목 css, font 추가(예정) */
+}
+
+/* 작성자 이름 */
+#writeID {
+    font-size: 17px;
+    font-weight: lighter;
+    /* *******************************************************작성자 제목 css, font 추가(예정) */
+}
+
+/* 이미지 호버 시 오버레이 나타내기 */
+td:hover .overlay {
+    opacity: 1;
+}
+
+td img:hover {
+    filter: brightness(70%);
+    /* 이미지를 조금 어둡게 처리하여 */
+    transition: filter 0.3s ease;
+    /* 부드러운 전환 효과 추가 */
+    cursor: pointer;
+    /* 호버 시 포인터 커서로 변경 */
+}
+
+/* 이미지 호버 시 스타일 */
+#picture:hover {
+    text-decoration: overline;
+}
+
+/* 작성자 이름 호버 시 스타일 */
+#writeID:hover {
+    text-decoration: underline;
+    /* 밑줄 추가 */
+    /* *******************************************************작성자 이름 호버 시 색상 변경 */
+}
+
+/* 하단의 글쓰기 버튼 */
+.write_btn {
+    margin-right: auto;
+    margin-top: auto;
+    float: right;
+    width: 100px;
+    height: 30px;
+    font-weight: bolder;
+    border: 1px solid #A4A79A;
+    border-radius: 5px;
+    /* *******************************************************footer 글쓰기 버튼 css,font 추가(예정) */
+}
+
+.write_btn:hover {
+    filter: brightness(70%);
+    /* 이미지를 조금 어둡게 처리하여 */
+    transition: filter 0.3s ease;
+    /* 부드러운 전환 효과 추가 */
+    cursor: pointer;
+    /* 호버 시 포인터 커서로 변경 */
+}

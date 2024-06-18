@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아트클라우드 / 계정생성</title>
+
+    <!-- 파이어 베이스 관련 서비스 추가 -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+
+    <link rel="stylesheet" href="./miniproject_page3.css">
+</head>
+
+<body>
+
+    <header>
+        <a href="../index.html"><h1 >아트클라우드</h1></a>
+    </header>
+    <hr>
+
+
+    <section id="signUp">
+
+        <h1 align="center">아트클라우드 계정생성</h1>
+
+        <!-- 아이디 / 비밀번호 / 비밀번호 확인 입력창 -->
+        <span class="inputExplaner">아이디와 비밀번호를 입력하세요</span>
+        <div class="signUpForm">
+            <label class="legend-top">
+                <input id="idInput" type="text" placeholder="아이디" value=""/>  <!-- input 입력창 안에 "아이디" 문자열 들어감 -->
+                <span>아이디</span>  <!-- 아이디 칸 입력할 때 "아이디" 라는 문자열이 입력칸 윗쪽에 나타남 -->
+            </label>
+        </div>
+
+        <div class="signUpForm">
+            <label class="legend-top">
+                <input id="passwordInput" type="password" placeholder="비밀번호" value=""/>
+                <span>비밀번호</span>
+            </label>
+        </div>
+
+        <div class="signUpForm">
+            <label class="legend-top">
+                <input id="passwordCheckInput" type="password" placeholder="비밀번호 확인" value=""/>
+                <span>비밀번호 확인</span>
+            </label>
+        </div>
+
+        <!-- 닉네임 입력창 -->
+        <span class="inputExplaner">닉네임을 입력하세요</span>
+        <div class="signUpForm">
+            <label class="legend-top">
+                <input id="nickInput" type="text" placeholder="닉네임" value=""/>
+                <span>닉네임</span>
+            </label>
+        </div>
+
+        <!-- 전화번호 입력창 -->
+        <div class="phoneInputStep">
+            <span class="inputExplaner">전화번호를 입력하세요</span>
+            <div class="phoneInput">
+                <select id="phonePrefix" name="phonePrefix">
+                    <option value="010">010</option>
+                    <option value="011">011</option>
+                    <option value="011">012</option>
+                    <option value="016">013</option>
+                    <option value="017">014</option>
+                    <option value="018">015</option>
+                    <option value="019">016</option>
+                    <option value="019">017</option>
+                    <option value="019">018</option>
+                    <option value="019">019</option>
+                </select>
+                <input type="text" id="phoneNumberInput" name="phoneNumber" placeholder="'-' 제외 하고 입력" value="">
+            </div>
+        </div>
+        <!-- 전화번호 입력창 끝 -->
+
+        <!-- 이메일 입력창 -->
+        <div class="emailInputStep">
+            <span class="inputExplaner">이메일을 입력하세요</span>
+            <input type="text" name="email1" id="email1" placeholder="Enter email" class="emailInput" value=""> @
+            <input type="text" name="email2" id="email2" value="domain.com" class="emailInput">
+            <select class="emailInput" id="emaildomain">
+                <option value="">직접입력</option>
+                <option value="naver.com">naver.com</option>
+                <option value="gmail.com">gmail.com</option>
+                <option value="daum.net">daum.net</option>
+                <option value="hanmail.net">hanmail.net</option>
+                <option value="nate.com">nate.com</option>
+            </select>
+        </div>
+        <!-- 이메일 입력창 끝 -->
+
+        <!-- 가입완료 버튼 -->
+        <div align="center">
+            <button id="signUpEndBtn" type="submit">가입 완료</button>
+        </div>
+
+
+        <script src="./miniproject_page3.js"></script>
+    </section>
+
+</body>
+
+</html>

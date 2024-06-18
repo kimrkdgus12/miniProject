@@ -1,0 +1,232 @@
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'GmarketSansMedium';
+}
+
+body {
+    margin: 0;
+    background-color: white;
+    color: black;
+    font-family: 'Pretendard-Regular', sans-serif;
+}
+
+.allContainer {
+    display: flex;
+    height: 100vh;
+    /* 전체 화면 높이 */
+}
+
+/* 사이드바 작업 */
+.sidebar {
+    width: 10%;
+    background-color: gray;
+    /* 사이드바 배경색 변경 */
+}
+
+.sidebar p {
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 10px;
+    /* border-box 라인 색상 변경 */
+
+    font-size: 1.3rem;
+    font-weight: bold;
+
+    height: 5rem;
+    margin: 1rem 1rem 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar ul {
+    text-align: center;
+    padding: 0;
+}
+
+.sidebar li {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.sidebar ul li:hover {
+    color: #A4A79A;
+    transition: 0.6s ease;
+    background-color: whitesmoke;
+    /* 포인트 색 적용 */
+}
+
+/* 사이드바 작업 끝 */
+
+.mainContent {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    height: 10%;
+    background-color: white;
+    text-align: center;
+    border-bottom: gray solid 5px;
+}
+
+.header>p {
+    align-content: center;
+    font-size: 34px;
+    /* 글씨 크기 36px로 변경 */
+    font-weight: bold;
+    /* 글씨 두께를 bold로 변경 */
+    color: black;
+    /* 포인트 색 적용 */
+}
+
+.main {
+    height: 80%;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    /* 내용이 넘칠 때 스크롤 추가 */
+}
+
+.footer {
+    height: 10%;
+    background-color: #c0c0c0;
+}
+
+/* 버튼 호버 효과 */
+#prevBtn:hover,
+#nextBtn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* 이미지 공간 작업하기 */
+.imgContainer {
+    box-sizing: border-box;
+    margin: 1rem;
+    position: relative;
+    width: 50%;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+#imageContainer1 {
+    width: 500px;
+    /* 원하는 이미지 컨테이너 크기 */
+    height: 500px;
+    /* 원하는 이미지 컨테이너 크기 */
+    overflow: hidden;
+    position: relative;
+}
+
+#imageContainer1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*  리뷰 출력 */
+.txtContainer {
+    box-sizing: border-box;
+    margin: 1rem;
+    position: relative;
+    width: 50%;
+    height: 96%;
+    border: 1px solid white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.txtContainer h2 {
+    margin-left: 0.4rem;
+}
+
+.textArea {
+    width: 200px;
+    height: 10%;
+    font-size: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    resize: none;
+}
+
+.reviewArea {
+    width: 80%;
+    height: 50%;
+    max-width: 80%;
+    max-height: 50%;
+    font-size: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+.btn button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: lightskyblue;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn button.cancel-btn {
+    background-color: lightcoral;
+}
+
+.footer {
+    height: 10%;
+    background-color: white;
+    border-top: gray solid 5px;
+}
+
+/* 헤더의 로그인 버튼.... */
+.login-btn {
+    position: absolute;
+    top: 1rem;
+    right: 0.5rem;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: gray;
+    /* 포인트 색 적용 */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+/* 로그아웃 버튼 호버 */
+.login-btn:hover {
+    background-color: #A4A79A;
+    /* 호버 시 포인트 색 적용 */
+}

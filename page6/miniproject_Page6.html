@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아트클라우드 / 업로드</title>
+
+  <link rel="stylesheet" href="./miniproject_Page6.css">
+
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+</head>
+
+<body>
+  <div class="allContainer">
+    <!-- 사이드 바 시작 -->
+    <div class="sidebar">
+      <p><a href="../index.html">Art Cloud</a><LO/p>
+      <ul style="list-style:none;">
+        <a href="#">
+          <li>BOOK</li>
+        </a>
+        <a href="#">
+          <li>PICTURE</li>
+        </a>
+        <a href="#">
+          <li>MOVIE</li>
+        </a>
+        <a href="#">
+          <li>MUSIC</li>
+        </a>
+        <a href="../page5/miniproject_Page5.html">
+          <li>EXHIBITION</li>
+        </a>
+      </ul>
+    </div>
+    <!-- 사이드 바 끝 -->
+
+
+    <div class="mainContent">
+      <div class="header">
+        <p>아트클라우드</p>
+        <a href="../miniproject_Page1_2.html" class="login-btn">Out</a>
+      </div>
+
+      <div class="main">
+
+        <!-- 업로드 하는 창 -->
+        <div class="imgContainer">
+          <div id="imageContainer1">
+            <img id="uploaded-image" src="" alt="업로드된 이미지">
+          </div>
+          <input type="file" id="file-input" accept="image/*">
+          <button id="upload-btn">Upload</button>
+          <button id="cancel-btn">Cancel</button>
+        </div>
+
+        <!-- 제목, 리뷰 작성 칸 -->
+        <div class="txtContainer">
+          <br>
+          <h3>TITLE</h3>
+          <textarea class="titleArea" placeholder="작품명을 작성하세요." maxlength="50"></textarea>
+          <h3>REVIEW</h3>
+          <textarea class="reviewArea" placeholder="리뷰를 작성하세요." maxlength="400"></textarea><br>
+          <div class="btn">
+            <br>
+            <button id="submit-btn" class="submit-btn">작성 확인</button>
+            <button id="cancel" class="cancel-btn">작성 취소</button>
+            <button id="endBtn" class="endBtn">작성 완료</button>
+          </div>
+        </div>
+
+      </div>
+      <div class="footer"></div>
+    </div>
+  </div>
+
+
+  <script type="module" src="./miniproject_Page6_1.js"></script>
+  <script type="module" src="./miniproject_Page6_2.js"></script>
+</body>
+
+</html>

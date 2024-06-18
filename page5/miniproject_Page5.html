@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아트클라우드 / EXHIBITION</title>
+
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+
+    <link rel="stylesheet" href="./miniproject_Page5.css">
+</head>
+
+<body>
+    <div class="allContainer">
+        <div class="sidebar">
+            <p><a href="../miniproject_Page1_2.html">Art Cloud</a></p>
+            <ul style="list-style:none;">
+                <a href="#">
+                    <li>BOOK</li>
+                </a>
+                <a href="#">
+                    <li>PICTURE</li>
+                </a>
+                <a href="#">
+                    <li>MOVIE</li>
+                </a>
+                <a href="#">
+                    <li>MUSIC</li>
+                </a>
+                <a href="#">
+                    <li>EXHIBITION</li>
+                </a>
+            </ul>
+        </div>
+
+
+        <div class="mainContent">
+
+
+            <div class="header">
+                <!-- 상단 -->
+                <div class="search">
+                    <div class="search-container">
+                        <div class="search-input-wrapper">
+                            <!-- 선택 옵션 두 가지 (작품, 작성자) -->
+                            <select id="search_select">
+                                <option>작품</option>
+                                <option>작성자</option>
+                            </select>
+                            <!-- 검색할 내용 - placeholder로 "검색할 내용을 작성하세요." -->
+                            <input class="input_text" id="search_input" type="text" placeholder="검색할 내용을 작성하세요.">
+                        </div>
+                        <!-- 검색하기 버튼 -->
+                        <button class="search_end" id="search_button">검색하기</button>
+                        <a href="../index.html" id="login-btn">Out</a>
+                    </div>
+                </div>
+                <!-- 로그아웃 버튼 -->
+            </div>
+            <div class="main">
+                <!-- 가운데 들어갈 html -->
+                <main class="content">
+                    <table id="mainTable" class="body">
+                        <tbody align="center">
+                            <tr>
+                                <th>
+                                    <br>
+                                    <br>
+                                    <span class="title" id="titleID">easy heavy</span>
+                                </th>
+                                <th>
+                                    <br>
+                                    <br>
+                                    <span class="title" id="titleID">길 위의 도자</span>
+                                </th>
+                                <th>
+                                    <br>
+                                    <br>
+                                    <span id="titleID">아메리칸 팝아트 거장전</span>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img id="picture1"
+                                        src="http://www.f1963.org/upload/art/20244215411/20240507150626_0ad9ef80.jpg"
+                                        alt="" width="200px" height="200px">
+                                </td>
+                                <td>
+                                    <img id="picture2"
+                                        src="https://www.acc.go.kr/resources/upload/1741/20240412142255_938364448.jpg"
+                                        alt="" width="200px" height="200px">
+                                </td>
+                                <td>
+                                    <img src="https://ticketimage.interpark.com/Play/image/large/24/24005984_p.gif"
+                                        alt="" width="200px" height="200px">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <span id="writeID">작성자 : 어려움</span>
+                                </th>
+                                <th>
+                                    <span id="writeID">작성자 : 벼랑 위의 포뇨</span>
+                                </th>
+                                <th id="writeID">작성자 : 내가 그린 기린 그림</th>
+                            </tr>
+                            <tr>
+                                <!-- 중단에 공간 띄우기 -->
+                                <th class="space"></th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <br>
+                                    <br>
+                                    <span id="titleID">헬로키티 50주년 특별전</span>
+                                </th>
+                                <th>
+                                    <br>
+                                    <br>
+                                    <span id="titleID">에드바르 뭉크 : 비욘드 더 스크림</span>
+                                </th>
+                                <th>
+                                    <br>
+                                    <br>
+                                    <span id="titleID">이경준 사진전 : 원 스텝 어웨이</span>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="https://ticketimage.interpark.com/Play/image/large/24/24005553_p.gif"
+                                        alt="" width="200px" height="200px">
+                                </td>
+                                <td>
+                                    <img src="https://ticketimage.interpark.com/Play/image/large/24/24005098_p.gif"
+                                        alt="" width="200px" height="200px">
+                                </td>
+                                <td>
+                                    <img src="https://ticketimage.interpark.com/Play/image/large/24/24003834_p.gif"
+                                        alt="" width="200px" height="200px">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th id="writeID">작성자 : 지옥 고양이</th>
+                                <th id="writeID">작성자 : 아침의 내모습</th>
+                                <th id="writeID">작성자 : 찰칵</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </main>
+            </div>
+
+
+            <div class="footer">
+                <!-- 하단 -->
+                <footer class="write">
+                    <div>
+                        <!-- 글쓰기 버튼 -->
+                        <button class="write_btn" id="write_btn">글쓰기</button>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        // 테이블 마진(웹 페이지의 오른쪽으로 붙이기)
+        document.addEventListener("DOMContentLoaded", () => {
+            const table = document.getElementById("mainTable");
+            table.style.marginLeft = "auto";
+            table.style.marginRight = "0";
+
+            // 글쓰기 버튼 위치 조정
+            const writeBtn = document.getElementById("write_btn");
+            writeBtn.style.transform = "translate(-50px, +20px)";
+        });
+
+        // 이미지 클릭 시 이벤트
+        const images = document.querySelectorAll("td img");
+        images.forEach(img => {
+            img.addEventListener("click", () => {
+                window.location.href = "../page7/miniproject_Page7.html"; // 현재 창에서 페이지 이동
+            });
+        });
+
+        // 작성자 클릭 시 이벤트
+        const writers = document.querySelectorAll("#writeID");
+        writers.forEach(writer => {
+            writer.addEventListener("click", () => {
+                window.location.href = "../page7/miniproject_Page7.html"; // 현재 창에서 페이지 이동
+            });
+        });
+
+        // 작성자 이름 호버 시 이벤트
+        writers.forEach(writer => {
+            writer.addEventListener("mouseover", () => {
+                writer.style.cursor = "pointer"; // 포인터 모양으로 변경
+            });
+
+            writer.addEventListener("mouseout", () => {
+                writer.style.color = "initial"; // 기본 색상으로 변경
+                writer.style.cursor = "default"; // 기본 커서로 변경
+            });
+        });
+
+        // 글쓰기 버튼 클릭 이벤트
+        let writeBtn = document.getElementById("write_btn");
+        writeBtn.addEventListener("click", () => {
+            window.location.href = "../page6/miniproject_Page6.html";
+        });
+    </script>
+</body>
+
+</html>

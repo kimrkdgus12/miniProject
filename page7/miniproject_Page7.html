@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            font-family: 'GmarketSansMedium';
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .allContainer {
+            display: flex;
+            height: 100vh;
+            /* 전체 화면 높이 */
+        }
+
+        /* 사이드바 작업 */
+        .sidebar {
+            width: 10%;
+            background-color: gray;
+            /* 사이드바 배경색 변경 */
+        }
+
+        .sidebar p {
+            box-sizing: border-box;
+            border: 1px solid white;
+            border-radius: 10px;
+            /* border-box 라인 색상 변경 */
+
+            font-size: 1.3rem;
+            font-weight: bold;
+
+            height: 5rem;
+            margin: 1rem 1rem 2rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .sidebar ul {
+            text-align: center;
+            padding: 0;
+
+        }
+
+        .sidebar li {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        .sidebar ul li:hover {
+            color: #A4A79A;
+            transition: 0.6s ease;
+            background-color: whitesmoke;
+            /* 포인트 색 적용 */
+        }
+
+        /* 사이드바 작업 끝 */
+
+        .mainContent {
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 헤더 작업 */
+        .header {
+            height: 10%;
+            background-color: white;
+            text-align: center;
+        }
+
+        .header>p {
+            align-content: center;
+            font-size: 34px;
+            /* 글씨 크기 36px로 변경 */
+            font-weight: bold;
+            /* 글씨 두께를 bold로 변경 */
+            color: black;
+            /* 포인트 색 적용 */
+        }
+
+        #login-btn {
+            position: absolute;
+            top: 1rem;
+            right: 0.5rem;
+
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            background-color: gray;
+            /* 포인트 색 적용 */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        #login-btn:hover {
+            background-color: #A4A79A;
+        }
+
+
+        /*  main은 imgContainer(이미지 슬라이더)와 txtContainer(리뷰)로 구성 */
+        .main {
+            height: 80%;
+            width: 100%;
+            background-image: url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRXAPwpmlCbxEmAZJuAsaxAhh8_A5xnjdCz3sXPcOiFpBXp4xLV');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        /*  이미지 슬라이더
+            imgContainer은 imgSlides를 담는다
+            
+            flex로 이미지와 버튼 가운데 정렬
+        */
+        .imgContainer {
+            box-sizing: border-box;
+            margin: 2rem;
+
+            position: relative;
+            width: 40%;
+            height: 84%;
+
+            /* border: 1px solid black; */
+            border-radius: 10px;
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+        }
+
+        /*  불필요한 이미지들을 보이지 않게 
+            필요한 이미지만 보이게 하는 것은 script에서 함수로 구현
+        */
+        .imgSlides {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+
+        }
+
+        /*  max-width와 auto로 imgSlides 크기를 기준으로 조정  */
+        .imgSlides>img {
+            height: 450px;
+            max-width: 70%;
+
+        }
+
+        /* fade 효과 */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        /*  슬라이더 움직이는 버튼 */
+        #prevBtn,
+        #nextBtn {
+            cursor: pointer;
+            width: auto;
+            height: 3rem;
+
+            color: gray;
+            border-radius: 0 3px 3px 0;
+
+            font-weight: bold;
+            font-size: 3rem;
+
+            transition: 0.6s ease;
+
+            user-select: none;
+        }
+
+        #nextBtn {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* 버튼 호버 효과 */
+        #prevBtn:hover,
+        #nextBtn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* 현재 인덱스 번호 출력 */
+        #currentIdx {
+            position: absolute;
+            bottom: 0;
+            left: 48%;
+            text-align: center;
+            color: gray;
+            font-weight: 900;
+        }
+
+        /*  리뷰 출력 */
+        .txtContainer {
+            box-sizing: border-box;
+            margin: 1rem;
+
+            position: relative;
+            width: 50%;
+            height: 84%;
+            /* border: 1px solid black; */
+            /* border-radius: 10px; */
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .txtContainer h2 {
+            margin-left: 0.4rem;
+        }
+
+        .textArea {
+            width: 80%;
+            height: 7%;
+            font-size: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            resize: none;
+            background: none;
+        }
+
+        .reviewArea {
+            width: 80%;
+            height: 50%;
+            max-width: 80%;
+            max-height: 50%;
+            font-size: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            background: none;
+        }
+
+        /* .footer {
+            height: 10%;
+            background-color: #c0c0c0;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="allContainer">
+        <div class="sidebar">
+            <p><a href="../page1/miniproject_Page1_2.html">Art Cloud</a></p>
+            <ul style="list-style:none;">
+                <a href="#">
+                    <li>BOOK</li>
+                </a>
+                <a href="#">
+                    <li>PICTURE</li>
+                </a>
+                <a href="#">
+                    <li>MOVIE</li>
+                </a>
+                <a href="#">
+                    <li>MUSIC</li>
+                </a>
+                <a href="../page5/miniproject_Page5.html">
+                    <li>EXHIBITION</li>
+                </a>
+            </ul>
+        </div>
+
+        <div class="mainContent">
+            <div class="header">
+                <p>아트클라우드</p>
+                <a href="../page1/index.html" id="login-btn">log out</a>
+            </div>
+
+            <div class="main">
+                <div class="imgContainer">
+                    <a id="prevBtn">&lt;</a>
+
+                    <div class="imgSlides fade">
+                        <img src="http://www.f1963.org/upload/art/20244215411/20240507150626_0ad9ef80.jpg">
+                    </div>
+                    <div class="imgSlides fade">
+                        <img src="https://www.acc-exhibition.com/wp-content/uploads/2024/04/road-1.jpg">
+                    </div>
+                    <div class="imgSlides fade">
+                        <img
+                            src="https://file.newswire.co.kr/data/datafile2/thumb_640/2024/04/31017998_20240419085504_8762261780.jpg">
+                    </div>
+
+                    <a id="nextBtn">&gt;</a>
+                    <p id="currentIdx">위치</p>
+                </div>
+
+                <div class="txtContainer">
+                    <br>
+                    <br>
+                    <h2>[ TITLE ]</h2>
+                    <textarea class="textArea" id="textArea"></textarea>
+                    <h2>[ REVIEW ]</h2>
+                    <textarea class="reviewArea" id="reviewArea"></textarea><br>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="footer"></div> -->
+    </div>
+
+    <script>
+        // 텍스트 슬라이더 구현
+        const textArea = document.getElementById("textArea");
+        const reviewArea = document.getElementById("reviewArea");
+
+        const titlesList = [
+            "Na Kim EASY HEAVY",
+            "길 위에 도자",
+            "베르메르부터 반 고흐까지"
+        ];
+
+        const reviewsList = [
+            "국제 갤러리 부산에서 개최되는 'Na Kim: EASY HEAVY' 전시회는 현대 미술의 독창적인 세계로 초대합니다. 나 김의 작품은 경계를 허물며 새로운 시각을 제시하는데, 'EASY HEAVY'는 그녀의 창의적인 표현과 복잡한 아이디어의 조합을 보여줍니다. 이 전시는 관객들에게 나 김의 고유한 예술적 세계를 탐험할 기회를 제공하며, 현대미술의 다양성과 심도를 경험할 수 있습니다.",
+            "국립아시아문화전당 문화창조원에서 선보이는 '길 위에 도자: Immigration of Ceramics' 전시회는 도자기의 여정을 담은 특별한 전시입니다. 이번 전시는 도자 예술의 다양성과 역사를 탐구하며, 길 위에서의 이주를 주제로 합니다. 각 근대와 현대 도자 작품들이 다양한 문화적 배경을 통해 소개될 것입니다. 관람객들은 이 전시를 통해 도자기가 새로운 환경에서 어떻게 변화하고 진화하는지를 경험할 수 있을 것입니다.",
+            "네덜란드 거장 26명의 작품을 한 자리에 모은 이번 전시회는 오랜 역사와 풍부한 예술적 유산을 만날 수 있는 특별한 기회입니다. 베르메르부터 반 고흐까지, 네덜란드의 대표적인 화가들의 작품들이 다채롭게 전시됩니다. 각 작품은 그 시대를 반영하면서도 독창적인 예술적 표현을 보여줍니다. 이 전시회를 통해 네덜란드 예술의 다양성과 아름다움을 경험할 수 있습니다."
+        ];
+
+        const showText = (n) => {
+            textArea.value = titlesList[n];
+            reviewArea.value = reviewsList[n];
+        }
+
+        // 이미지 슬라이더 구현
+        const slides = document.getElementsByClassName("imgSlides"); // 클래스로 슬라이더 이미지들 선택
+        let slidesLen = slides.length; // 슬라이더 이미지의 전체 개수
+        let slideIndex = 0; // 슬라이더의 인덱스, 0부터 slidesLen-1 까지
+
+        const currentIdx = document.getElementById("currentIdx");
+        currentIdx.innerText = `${slideIndex + 1}/${slidesLen}`;
+
+        // 슬라이더의 이미지를 보여주는 함수
+        const showSlides = (n) => {
+            for (let i = 0; i < slidesLen; i++) {
+                slides[i].style.display = 'none'; // 슬라이더의 이미지를 모두 감춤
+            }
+            slides[n].style.display = 'flex';
+        }
+
+        // 오른쪽 버튼을 누르면 인덱스 값을 증가시키고 슬라이더를 보여주는 함수
+        const indexPlus = () => {
+            if (slideIndex == slidesLen - 1) { // 만약 슬라이더 인덱스가 끝값일 때
+                slideIndex = 0;
+            } else if (slideIndex < slidesLen - 1) { // 인덱스가 끝값이 아닐 때
+                slideIndex++;
+            }
+            showSlides(slideIndex); // 위에 구현한 슬라이더 보여주는 함수
+            showText(slideIndex);
+            currentIdx.innerText = `${slideIndex + 1}/${slidesLen}`;
+        }
+
+        // 왼쪽 버튼을 누르면 인덱스 값을 감소 시키고 슬라이더를 보여주는 함수
+        const indexMinus = () => {
+            if (slideIndex == 0) { // 만약 슬라이더 인덱스가 처음일 때(0)
+                slideIndex = slidesLen - 1;
+            } else if (slideIndex > 0) { // 인덱스가 0이 아닐 때
+                slideIndex--;
+            }
+            showSlides(slideIndex);
+            showText(slideIndex);
+            currentIdx.innerText = `${slideIndex + 1}/${slidesLen}`;
+        }
+
+        // 오른쪽 버튼과 왼쪽 버튼을 지정하고 이벤트로 함수를 실행
+        const nextBtn = document.getElementById("nextBtn");
+        nextBtn.addEventListener('click', indexPlus);
+
+        const prevBtn = document.getElementById("prevBtn");
+        prevBtn.addEventListener('click', indexMinus);
+
+        showSlides(0); // 페이지가 처음에 로딩되었을 때 0번 슬라이더를 화면에 띄움
+        showText(0);
+    </script>
+</body>
+
+</html>

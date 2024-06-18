@@ -1,0 +1,186 @@
+/* #signUp {
+    display: inline-block;
+    margin-left: 100px;
+} */
+html {
+    font-size: 62.5%;
+}
+
+
+body {
+    margin: auto;
+    width: 960px;
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+}
+
+body,
+input,
+select,
+button,
+textarea {
+    font-family: "Lato", sans-serif;
+    font-size: 16px;
+}
+
+#signUp {
+    padding: 16px;
+    width: 480px;
+    margin: 0 auto;
+}
+
+#signUp h1 {
+    margin-bottom: 50px;
+}
+
+.inputExplaner {
+    display: block;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #9FAAB7;
+    font-size: 11.428571428571429px;
+    /* 16px/1.4 */
+    margin-bottom: 16px;
+}
+
+.signUpForm {
+    border: 1px solid #C0CCDA;
+    margin-bottom: 16px;
+    border-radius: 4px;
+
+    &:focus-within {
+        border-color: #270D7C;
+    }
+
+    input,
+    select {
+        appearance: none;
+        -webkit-appearance: none;
+        border: none;
+        background-color: transparent;
+        outline: none;
+        padding: 16px;
+        display: block;
+        box-sizing: border-box;
+    }
+
+    span {
+        padding: 16px;
+        color: #9FAAB7;
+    }
+
+    .legend-top span {
+        position: absolute;
+        margin-top: -60px;
+        opacity: 0;
+        transition: all 0.05s ease-in-out;
+    }
+
+    .legend-top input:not(:placeholder-shown)~span,
+    .legend-top select:not(:placeholder-shown)~span {
+        opacity: 1;
+        font-size: 11.2px;
+        /* 8px * 1.4 */
+        background-color: white;
+        color: #9FAAB7;
+        padding: 2px 4px;
+        /* 4px / 2 4px */
+        margin: -58px 0 0 11.2px;
+        /* 8px * 1.4 */
+    }
+}
+
+/* < 전화번호 입력 창 관련 css 코드 > */
+.phoneInputStep {
+    margin-bottom: 30px;
+}
+
+.phoneInput {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: #fff;
+}
+
+.phoneInput select,
+.phoneInput input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 8px;
+}
+
+.phoneInput select {
+    border-right: 1px solid #ccc;
+    margin-right: 8px;
+    background-color: #fff;
+}
+
+.phoneInput input {
+    flex: 1;
+}
+
+.phoneInput input::placeholder {
+    color: #aaa;
+}
+
+
+/* < 이메일 입력 칸 css 코드 > */
+.emailInputStep {
+    background-color: #fff;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    align-items: center;
+}
+
+.emailInputStep .emailInput {
+    width: 31%;
+    font-size: 16px;
+    padding: 8px;
+    /* margin-right: 8px; */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.emailInputStep .emailInput::placeholder {
+    color: #aaa;
+}
+
+.emailInputStep select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+/* < 가입 완료 버튼에 관한 css 코드 > */
+#signUpEndBtn {
+    background-color: gray;
+    /* Green background */
+    border: none;
+    color: white;
+    /* White text */
+    padding: 15px 32px;
+    /* Padding to make the button larger */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 25px;
+    /* Rounded corners */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for background color change */
+}
+
+#signUpEndBtn:hover {
+    background-color: #A4A79A;
+    /* Darker green on hover */
+}
